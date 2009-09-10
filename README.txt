@@ -7,6 +7,8 @@ The sample project requires ASP.NET 3.5 to function and is set up to work agains
 
 The code is documented and the the application will lead you through setup.
 
+See http://docs.exorlive.com/api/ for more about the API's used.
+
 For inquiries, please contact Øyvind Sean Kinsey on oyvind.kinsey@exorlive.com 
 
 This code is in the public domain but relies on libraries provided under Microsoft Public License (Ms-PL) and GNU General Public License v3.
