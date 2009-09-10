@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ff6a1961-be11-4c46-8996-5b122124e05f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://api.exorlive.com/services/PartnerService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="PartnerService.xsd" MetadataType="Schema" ID="8ddfd53e-92b2-4ee4-b024-59151a16cc0c" SourceId="1" SourceUrl="http://api.exorlive.com/services/PartnerService.svc?xsd=xsd0" />
+    <MetadataFile FileName="PartnerService1.xsd" MetadataType="Schema" ID="79eccabb-8e11-4f6d-b217-dbf3e30d06b9" SourceId="1" SourceUrl="http://api.exorlive.com/services/PartnerService.svc?xsd=xsd2" />
+    <MetadataFile FileName="PartnerService2.xsd" MetadataType="Schema" ID="9b932df1-2db5-4f94-925f-baa7b1c8f044" SourceId="1" SourceUrl="http://api.exorlive.com/services/PartnerService.svc?xsd=xsd1" />
+    <MetadataFile FileName="PartnerService.wsdl" MetadataType="Wsdl" ID="745dba8b-d84a-4369-9681-05512a6cf3e8" SourceId="1" SourceUrl="http://api.exorlive.com/services/PartnerService.svc?wsdl" />
+    <MetadataFile FileName="PartnerService1.wsdl" MetadataType="Wsdl" ID="45fc9602-57fe-4e65-9d41-e4076f75406a" SourceId="1" SourceUrl="http://api.exorlive.com/services/PartnerService.svc?wsdl=wsdl1" />
+    <MetadataFile FileName="PartnerService.disco" MetadataType="Disco" ID="c85610b2-0dd7-4cf5-bea8-a70c6cacbd6b" SourceId="1" SourceUrl="http://api.exorlive.com/services/PartnerService.svc?disco" />
+    <MetadataFile FileName="PartnerService3.xsd" MetadataType="Schema" ID="5b4582d2-ce9b-443f-9762-65d2fd6e0ffc" SourceId="1" SourceUrl="http://api.exorlive.com/services/PartnerService.svc?xsd=xsd3" />
+    <MetadataFile FileName="PartnerService2.wsdl" MetadataType="Wsdl" ID="ba10e6ef-94b9-48dd-93e5-f312bdaf579f" SourceId="1" SourceUrl="http://api.exorlive.com/services/PartnerService.svc?wsdl=wsdl0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
