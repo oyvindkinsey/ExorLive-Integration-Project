@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="ExorLive.Api" elementFormDefault="qualified" targetNamespace="ExorLive.Api" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://api.exorlive.com/services/PartnerService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ExorLive.Api.Entities" />
+  <xs:import schemaLocation="http://localhost:50002/services/PartnerService2.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ExorLive.Api.Entities" />
+  <xs:import schemaLocation="http://localhost:50002/services/PartnerService2.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/ExorLive.Api" />
   <xs:element name="CreateOrganization">
     <xs:complexType>
       <xs:sequence>
@@ -13,7 +14,7 @@
   <xs:element name="CreateOrganizationResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ExorLive.Api.Entities" minOccurs="0" name="CreateOrganizationResult" nillable="true" type="q3:User" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ExorLive.Api" minOccurs="0" name="CreateOrganizationResult" nillable="true" type="q3:UserResponse" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

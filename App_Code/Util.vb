@@ -21,12 +21,13 @@ Public Class Util
         End Get
     End Property
 
-    Private Shared _endpoint As String = ConfigurationManager.AppSettings("ExorLiveOAuthEndpoint")
+    'Private Shared _endpoint As String = ConfigurationManager.AppSettings("ExorLiveOAuthEndpoint")
 
     Public Shared Function CreateConsumer() As WebConsumer
+
         Dim tokenManager = Persistence.OAuthTokenManager.Instance
         Dim oauthEndpoint As MessageReceivingEndpoint = _
-            New MessageReceivingEndpoint(New Uri(_endpoint), HttpDeliveryMethods.PostRequest)
+            New MessageReceivingEndpoint(New Uri(ExorLiveConsumer.Settings.OAuthEndpoint), HttpDeliveryMethods.PostRequest)
         Dim consumer As WebConsumer = New WebConsumer( _
             New ServiceProviderDescription With _
                 {.RequestTokenEndpoint = oauthEndpoint, _
@@ -44,18 +45,23 @@ Public Class Util
     Public Shared Function GetAuthentication(ByVal token As String) As String
         Dim authKeyResponse = CallUserService(token, Function(client) client.Authenticate(Nothing))
         Dim localUser As Entities.User = Database.Instance.GetUser(HttpContext.Current.User.Identity.Name)
-        If localUser.ExorLiveId <> authKeyResponse.UserId Then
-            localUser.ExorLiveId = authKeyResponse.UserId
+        If localUser.ExorLiveId <> authKeyResponse.Value.UserId Then
+            localUser.ExorLiveId = authKeyResponse.Value.UserId
             Database.Instance.Commit()
         End If
-        Return authKeyResponse.AuthKeyString
+        Return authKeyResponse.Value.AuthKeyString
     End Function
 
-    Public Shared Function CallUserService(Of T)(ByVal token As String, ByVal predicate As Func(Of ExorLive.UserService.UserServiceClient, T)) As T
+    Public Shared Function CallUserService(Of T)(ByVal token As String, ByVal predicate As Func(Of WSUserService.UserServiceClient, T)) As T
         If String.IsNullOrEmpty(token) Then
             Throw New InvalidOperationException("No access token!")
         End If
-        Dim client As New ExorLive.UserService.UserServiceClient("WSHttpBinding_UserService")
+
+        Dim endpointAddress As EndpointAddress = New EndpointAddress(New Uri(ExorLiveConsumer.Settings.ServiceEndpointBase & "services/UserService2.svc"))
+        Dim binding As Binding = New BasicHttpBinding(If(endpointAddress.Uri.Scheme = Uri.UriSchemeHttps, BasicHttpSecurityMode.Transport, BasicHttpSecurityMode.None))
+        
+        Dim client As New WSUserService.UserServiceClient(binding, endpointAddress)
+
         Dim serviceEndpoint = New MessageReceivingEndpoint(client.Endpoint.Address.Uri, HttpDeliveryMethods.AuthorizationHeaderRequest Or HttpDeliveryMethods.PostRequest)
 
         Dim consumer As WebConsumer = CreateConsumer()

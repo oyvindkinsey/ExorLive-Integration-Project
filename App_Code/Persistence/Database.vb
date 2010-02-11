@@ -18,6 +18,7 @@ Public Class Database
             _db.Root = _dbRoot
             'Fill with default data
             Dim domain As String = Util.ConsumerKey
+            If Not domain.Contains(".") Then domain = domain & ".com"
             Dim id As Integer
             For i As Integer = 1 To 3
                 SetUser(New Entities.User() With {.Username = "test" & i, .Password = "test", .EMailAddress = "test" & i & "@" & domain, .FullName = "Test" & i & " Test"})

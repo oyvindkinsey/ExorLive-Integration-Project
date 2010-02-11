@@ -14,10 +14,6 @@
 
     <script type="text/javascript" src="../resources/libs/Ext.ux.grid.RowActions.js"></script>
 
-    <script type="text/javascript" src="http://int.exorlive.com/api/client.js"></script>
-
-    <script type="text/javascript" src="../resources/scripts/app.js"></script>
-
 </head>
 <body>
     <form id="form1" runat="server">
@@ -27,5 +23,12 @@
         </Services>
     </asp:ScriptManager>
     </form>
+
+    <script type="text/javascript">
+        document.write(unescape('%3Cscript src="' + SETTINGS.ExorLiveUrl + '/api/client.js" type="text/javascript"%3E%3C/script%3E'));    
+    </script>
+
+    <script type="text/javascript" src="../resources/scripts/app.js"></script>
+
 </body>
 </html>

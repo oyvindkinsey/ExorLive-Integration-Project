@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="331bcabd-6b39-44f1-96c8-ae5986ced8e7" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:50002/services/PartnerService2.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="PartnerService2.wsdl" MetadataType="Wsdl" ID="8e2726f7-40df-4c3c-8852-c09223271199" SourceId="1" SourceUrl="http://localhost:50002/services/PartnerService2.svc?wsdl" />
+    <MetadataFile FileName="PartnerService21.wsdl" MetadataType="Wsdl" ID="7016bfb8-712b-46c7-aea0-7cd2fff827e1" SourceId="1" SourceUrl="http://localhost:50002/services/PartnerService2.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="PartnerService2.xsd" MetadataType="Schema" ID="bac840a9-328b-4c97-9115-4a476107bd33" SourceId="1" SourceUrl="http://localhost:50002/services/PartnerService2.svc?xsd=xsd1" />
+    <MetadataFile FileName="PartnerService21.xsd" MetadataType="Schema" ID="2ffe4e25-aee0-4479-9961-1a5d7394a3c7" SourceId="1" SourceUrl="http://localhost:50002/services/PartnerService2.svc?xsd=xsd4" />
+    <MetadataFile FileName="PartnerService2.disco" MetadataType="Disco" ID="71009f47-26da-4861-a44e-fa61b473885b" SourceId="1" SourceUrl="http://localhost:50002/services/PartnerService2.svc?disco" />
+    <MetadataFile FileName="PartnerService22.xsd" MetadataType="Schema" ID="5a58c4bc-4bca-4af1-ac1d-d439ae7a2781" SourceId="1" SourceUrl="http://localhost:50002/services/PartnerService2.svc?xsd=xsd2" />
+    <MetadataFile FileName="PartnerService23.xsd" MetadataType="Schema" ID="5e9b293b-2447-466a-b333-94e442296f8d" SourceId="1" SourceUrl="http://localhost:50002/services/PartnerService2.svc?xsd=xsd3" />
+    <MetadataFile FileName="PartnerService24.xsd" MetadataType="Schema" ID="e28bd524-8397-4ffc-95d4-94f41c72a27e" SourceId="1" SourceUrl="http://localhost:50002/services/PartnerService2.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

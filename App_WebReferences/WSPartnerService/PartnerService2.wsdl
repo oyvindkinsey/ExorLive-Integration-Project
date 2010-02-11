@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:i0="ExorLive.Api" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:tns="http://api.exorlive.com" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" name="PartnerService2" targetNamespace="http://api.exorlive.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="WSHttpBinding_PartnerService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:import namespace="ExorLive.Api" location="http://localhost:50002/services/PartnerService2.svc?wsdl=wsdl0" />
+  <wsdl:types />
+  <wsdl:binding name="WSHttpBinding_PartnerService" type="i0:PartnerService">
+    <wsp:PolicyReference URI="#WSHttpBinding_PartnerService_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateOrganization">
+      <soap12:operation soapAction="ExorLive.Api/PartnerService/CreateOrganization" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_PartnerService" type="i0:PartnerService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateOrganization">
+      <soap:operation soapAction="ExorLive.Api/PartnerService/CreateOrganization" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PartnerService2">
+    <wsdl:port name="WSHttpBinding_PartnerService" binding="tns:WSHttpBinding_PartnerService">
+      <soap12:address location="https://localhost:50002/services/PartnerService2.svc/soap" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>https://localhost:50002/services/PartnerService2.svc/soap</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="WSHttpBinding_PartnerService1" binding="tns:WSHttpBinding_PartnerService">
+      <soap12:address location="http://localhost:50002/services/PartnerService2.svc/soap" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>http://localhost:50002/services/PartnerService2.svc/soap</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_PartnerService" binding="tns:BasicHttpBinding_PartnerService">
+      <soap:address location="https://localhost:50002/services/PartnerService2.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_PartnerService1" binding="tns:BasicHttpBinding_PartnerService">
+      <soap:address location="http://localhost:50002/services/PartnerService2.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

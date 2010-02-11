@@ -2,12 +2,22 @@
 Ext.BLANK_IMAGE_URL = '../resources/libs/ext-3.0.0/resources/images/default/s.gif';
 
 function Application(){
-    var EXORLIVEAUTHURL = "http://auth.int.exorlive.com";
-    var EXORLIVEURL = "http://int.exorlive.com";
+    var EXORLIVEAUTHURL = SETTINGS.ExorLiveAuthUrl; 
+    var EXORLIVEURL = SETTINGS.ExorLiveUrl;
     var APPLICATIONURL = location.href.substring(0, location.href.lastIndexOf("/"));
     var _oauthTokenWindow;
     var _selectedContactId;
     
+	
+    function _displayMessage(msg){
+        if (Ext.MessageBox.isVisible()) {
+            Ext.MessageBox.updateText(msg);
+        }
+        else {
+            Ext.MessageBox.wait(msg);
+        }
+    }
+	
     function _initExorLive(authKey){
         _displayMessage("Initializing ExorLive..");
         ExorLive.init({
@@ -27,9 +37,14 @@ function Application(){
             "&redirect=" +
             encodeURIComponent(APPLICATIONURL + "/exorlive/GetOAuthToken.ashx");
             _oauthTokenWindow = window.open(getOAuthTokenUrl, "oauthTokenWindow");
+            if (!_oauthTokenWindow){
+                _displayMessage("We were unable to open a necessary popup window - please allow this for this domain, and for the ExorLive domain");
+            }
+            
         });
     }
     
+	
     function _createExorLiveAccount(){
         _displayMessage("Creating ExorLive account..");
         ExorLiveConsumer.Service.CreateExorLiveAccount(function(response){
@@ -41,7 +56,7 @@ function Application(){
             }
         });
     }
-    
+	
     function _openExorLive(){
         if (!ExorLive.isInitialized()) {
             _displayMessage("Retrieving ExorLive authentication key..");
@@ -97,6 +112,7 @@ function Application(){
             });
         }
     }
+	
     function _openContact(localId){
         if (ExorLive.isInitialized()) {
             _setSelectedExorLiveId(localId);
@@ -132,14 +148,6 @@ function Application(){
         })
     }
     
-    function _displayMessage(msg){
-        if (Ext.MessageBox.isVisible()) {
-            Ext.MessageBox.updateText(msg);
-        }
-        else {
-            Ext.MessageBox.wait(msg);
-        }
-    }
     /* */
     var _fields = [{
         name: 'Id',

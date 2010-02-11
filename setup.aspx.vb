@@ -10,7 +10,8 @@ Partial Class setup
         My.Computer.FileSystem.WriteAllText(Server.MapPath("~/appSettings.config"), config, False)
         FormsAuthentication.SignOut()
         Database.CommitAndCloseIfOpen()
-        IO.File.Delete(Server.MapPath("~/App_Data/db.dbs"))
+        Dim dbPath As String = Server.MapPath("~/App_Data/db.dbs")
+        If IO.File.Exists(dbPath) Then IO.File.Delete(dbPath)
 
         System.Web.HttpRuntime.UnloadAppDomain()
         Response.Redirect("~/")
